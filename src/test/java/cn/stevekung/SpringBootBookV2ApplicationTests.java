@@ -1,14 +1,17 @@
 package cn.stevekung;
 
 
+import cn.stevekung.api.AyUserDubboService;
 import cn.stevekung.pojo.AyMood;
 import cn.stevekung.pojo.AyUser;
 import cn.stevekung.pojo.AyUserAttachmentRel;
 import cn.stevekung.producer.AyMoodProducer;
+import cn.stevekung.result.Result;
 import cn.stevekung.service.AyMoodService;
 import cn.stevekung.service.AyUserAttachmentRelService;
 import cn.stevekung.service.AyUserService;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -323,6 +326,15 @@ public class SpringBootBookV2ApplicationTests {
         ayUserAttachmentRel.setFileName("个人简历.doc");
         ayUserAttachmentRelService.save(ayUserAttachmentRel);
         log.info("保存成功");
+    }
+
+    @Autowired
+    AyUserDubboService ayUserDubboService;
+
+    @Test
+    public void testDubbo(){
+        Result steve = ayUserDubboService.findByUserNameAndPassword("steve", "123456");
+        System.out.println(steve);
     }
 
 }

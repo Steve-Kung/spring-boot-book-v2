@@ -19,6 +19,17 @@
 	</properties>
 
 	<dependencies>
+		<!--dubbo-->
+		<dependency>
+			<groupId>io.dubbo.springboot</groupId>
+			<artifactId>spring-boot-starter-dubbo</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cn.stevekung</groupId>
+			<artifactId>ay-user-api</artifactId>
+			<version>1.0.1</version>
+		</dependency>
 		<!--监控管理-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
